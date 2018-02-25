@@ -1,73 +1,29 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { Container } from 'react-responsive-grid'
-
 import 'tachyons'
-import { rhythm, scale } from '../utils/typography'
+
+const Header = () => (
+  <div>
+    <div>
+      <h1 className="fw3 mt4 mb1">
+        <Link to="/" className="link dark-gray">
+          ian busko.
+        </Link>
+      </h1>
+    </div>
+  </div>
+)
 
 class Template extends React.Component {
   render() {
     const { location, children } = this.props
-    let header
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
-    }
-
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Ian Busko's Blog
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Ian Busko's Blog
-          </Link>
-        </h3>
-      )
-    }
     return (
-      <Container
-        style={{
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        {header}
+      <div className="sans-serif dark-gray mw-100 mw7-l center-l ph3 ph5-ns">
+        {/* TODO: META TAGS */}
+        <Header />
         {children()}
-      </Container>
+      </div>
     )
   }
 }
