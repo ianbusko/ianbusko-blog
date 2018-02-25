@@ -27,7 +27,7 @@ class BlogIndex extends React.Component {
               <section>
                 <Link
                   to={node.fields.slug}
-                  className={"link fw3 fw2-m fw2-l mv1 db title-gradient dim f3 f2-m f1-l"}
+                  className={"link gray fw3 fw2-m fw2-l mv1 db title-gradient dim f3 f2-m f1-l"}
                 >
                   {node.frontmatter.title}{' '}
                 </Link>

@@ -22,7 +22,7 @@ class Template extends React.Component {
       <div className="sans-serif dark-gray mw-100 mw7-l center-l ph3 ph5-ns">
         {/* TODO: META TAGS */}
         <Header />
-        {children()}
+        <div className="mv4">{children()}</div>
       </div>
     )
   }
