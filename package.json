@@ -1,11 +1,8 @@
 {
-  "name": "gatsby-starter-blog",
-  "description": "Starter Gatsby Blog",
+  "name": "ian-busko-blog",
+  "description": "Ian Busko's Blog",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
-  },
+  "author": "Ian Busko <ian.busko@gmail.com>",
   "dependencies": {
     "gatsby": "^1.9.207",
     "gatsby-link": "^1.6.37",
@@ -35,15 +32,15 @@
     "gh-pages": "^1.1.0",
     "prettier": "^1.10.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://ianbusko.codes",
   "keywords": [
-    "gatsby"
+    "ian busko"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": ""
   },
   "scripts": {
     "dev": "gatsby develop",
