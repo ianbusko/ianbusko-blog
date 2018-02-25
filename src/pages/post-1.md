@@ -1,6 +1,7 @@
 ---
 title: "Reusable View Components in ASP.NET Core 2.0"
 tags: ["C#", "ASP.NET Core"]
+date: "2017-12-23T22:12:03.284Z"
 ---
 
 

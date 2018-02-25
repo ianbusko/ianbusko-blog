@@ -3,7 +3,11 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
-import { rhythm } from '../utils/typography'
+const getCategoriesString = (tags) => {
+  if(tags && tags.length > 0){
+    return tags.join(', ');
+  }
+}
 
 class BlogIndex extends React.Component {
   render() {
@@ -16,19 +20,24 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
+            <article key={node.id} className="mb4">
+              <header>
+                <span className="fw3 gray f5">{node.frontmatter.date}</span>
+              </header>
+              <section>
+                <Link
+                  to={node.fields.slug}
+                  className={"link fw3 fw2-m fw2-l mv1 db title-gradient dim f3 f2-m f1-l"}
+                >
+                  {node.frontmatter.title}{' '}
                 </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+              </section>
+              <footer>
+                <span className="f6 moon-gray">
+                  {getCategoriesString(node.frontmatter.tags)}
+                </span>
+              </footer>
+            </article>
           )
         })}
       </div>
@@ -55,6 +64,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            tags
           }
         }
       }
