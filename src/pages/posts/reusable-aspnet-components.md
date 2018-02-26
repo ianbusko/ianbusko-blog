@@ -184,11 +184,3 @@ If you want to include other static resources (like styles or images), you would
 
 ### Summary
 At this point, we have a library with a ViewComponent and some JavaScript in it. To use it, you need to include a reference to the Extensions class in your `Startup.cs` class and include on line in `Configure` and another line in `Startup`.
-
-### Future Plans
-I have a few more things I want to add to my ViewComponents library:
-* Develop a class-based system of strongly-typed ViewComponents
-* Develop TagHelpers to wrap common markup structures
-* Add Bundling/Minification and package scripts/styles with their ViewComponents
-* Embed scripts/styles into the ViewComponents themselves
-* Restructure the ViewComponent locations to make the folder structures less verbose.
