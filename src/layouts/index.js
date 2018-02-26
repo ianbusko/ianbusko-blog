@@ -24,6 +24,7 @@ class Template extends React.Component {
     return (
       <div className="sans-serif dark-gray mw-100 mw7-l center-l ph3 ph5-ns">
         {/* TODO: META TAGS */}
+        {/* TODO: Add Google Analytics */}
         <Header />
         <div className="mv4">{children()}</div>
       </div>
