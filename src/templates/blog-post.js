@@ -5,53 +5,36 @@ import get from 'lodash/get'
 
 import Bio from '../components/Bio'
 
+const getCategoriesString = (tags) => {
+  if(tags && tags.length > 0){
+    return tags.join(', ')
+  }
+}
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const { previous, next } = this.props.pathContext
+    const date = post.frontmatter.date
 
     return (
-      <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: 'block',
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr/>
-        <Bio />
-
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          {previous && (
-            <li>
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            </li>
-          )}
-
-          {next && (
-            <li>
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            </li>
-          )}
-        </ul>
-      </div>
+      <article>
+        <header>
+          <span className="fw3 gray f5">{date}</span>
+          <h1 className="f3 fw3 f2-m fw2-m f1-l fw2-l mv1 db title-gradient">
+            {post.frontmatter.title}{' '}
+          </h1>
+          <span className="f6 moon-gray">
+            {getCategoriesString(post.frontmatter.tags)}
+          </span>
+          <hr className="mv4 bb b--black-10" />
+        </header>
+        <section>
+          <div
+            className="blog__body"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </section>
+      </article>
     )
   }
 }
@@ -72,6 +55,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
       }
     }
   }
