@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import 'tachyons'
 import Style from './index.scss'
+import "prismjs/themes/prism-okaidia.css"
+
 
 const Header = () => (
   <div>
