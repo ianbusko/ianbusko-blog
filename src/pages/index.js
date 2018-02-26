@@ -9,6 +9,13 @@ const getCategoriesString = (tags) => {
   }
 }
 
+const getPostClassesByIndex = (index) => {
+  const indexZeroClasses = "f2 f1-m f-subheadline-l"
+  const indexAnyClasses = "f3 f2-m f1-l"
+
+  return index === 0 ? indexZeroClasses  : indexAnyClasses
+}
+
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -17,7 +24,7 @@ class BlogIndex extends React.Component {
     return (
       <div>
         <Helmet title={siteTitle} />
-        {posts.map(({ node }) => {
+        {posts.map(({ node }, index) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (
             <article key={node.id} className="mb4">
@@ -27,7 +34,7 @@ class BlogIndex extends React.Component {
               <section>
                 <Link
                   to={node.fields.slug}
-                  className={"link gray fw3 fw2-m fw2-l mv1 db title-gradient dim f3 f2-m f1-l"}
+                  className={"link gray fw3 fw2-m fw2-l mv1 db title-gradient dim " + getPostClassesByIndex(index)}
                 >
                   {node.frontmatter.title}{' '}
                 </Link>
