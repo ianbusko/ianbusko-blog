@@ -2,5 +2,9 @@
 ## Running in development
 `gatsby develop`
 
-## TODO
-set up hosting
+## Deploy
+```
+gatsby build
+cd public
+netlify deploy
+```
