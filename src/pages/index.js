@@ -10,8 +10,8 @@ const getCategoriesString = (tags) => {
 }
 
 const getPostClassesByIndex = (index) => {
-  const indexZeroClasses = "f2 f1-m f-subheadline-l"
-  const indexAnyClasses = "f3 f2-m f1-l"
+  const indexZeroClasses = "f2 f2-m f1-l"
+  const indexAnyClasses = "f3 f2-m f1-m"
 
   return index === 0 ? indexZeroClasses  : indexAnyClasses
 }
